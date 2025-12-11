@@ -48,7 +48,7 @@ The approach distinguishes between driver-induced aggression and attack-triggere
 ### Data Collection Environments
 
 #### Controlled Environment (Fig. 1)
-![Controlled Environment Route](docs/images/controlled_environment_route.png)
+![Controlled Environment Route](docs/controlled_environment_route.png)
 *Data collection in restricted environment with predefined aggressive driving patterns*
 
 **Test Scenarios**:
@@ -100,7 +100,7 @@ The approach distinguishes between driver-induced aggression and attack-triggere
 ## 🧠 Model Architecture
 
 ### L-CNN Architecture Flow
-![L-CNN Architecture](docs/images/lcnn_architecture_flow.png)
+![L-CNN Architecture](docs/lcnn_architecture_flow.png)
 *End-to-end pipeline from CAN signal acquisition to behavior classification*
 
 ### Architecture Details
