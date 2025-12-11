@@ -321,7 +321,6 @@ unified-ivn-safety-security/
 │   ├── Data Labeling.ipynb         # Dataset annotation pipeline
 │   ├── ICEV_GRU.ipynb              # Kia Manual - GRU baseline
 │   ├── ICEV_L_CNN.ipynb            # Kia Manual - L-CNN
-
 │   ├── LICENSE
 │   └── README.md                    # This file
 │
@@ -346,33 +345,12 @@ unified-ivn-safety-security/
 
 ---
 
-## 🎓 Citation
-
-If you use this work in your research, please cite:
-
-```bibtex
-@article{islam2025unified,
-  title={Unifying Vehicle Safety and Security: Real-Time Detection of Aggressive Driving and Cyber-Attacks via CAN},
-  author={Islam, Md Rezanur and Sahlabadi, Mahdi and Batzorig, Munkhdelgerekh and Yim, Kangbin},
-  journal={IEEE Transactions on Network and Service Management},
-  year={2025},
-  publisher={IEEE}
-}
-```
-
 ---
 
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
----
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
----
 
 ## 📧 Contact
 
@@ -382,12 +360,5 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 Department of Software Convergence & Information Security Engineering  
 Asan-si, South Korea
 
----
-
-## 🙏 Acknowledgments
-
-This research was supported by the MSIT (Ministry of Science and ICT), Korea, under the Convergence Security Core Talent Training Business Support Program (IITP-2024-2710008611) supervised by the IITP and Soonchunhyang University Research Fund.
-
----
 
 **Keywords**: Aggressive Driving Detection, Cybersecurity, In-Vehicle Network, CAN Bus, Deep Learning, L-CNN, Edge Computing, Autonomous Driving, V2X Security
