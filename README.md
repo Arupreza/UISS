@@ -8,20 +8,6 @@
 
 A unified deep learning system for real-time detection of aggressive driving behaviors and cyber-attacks in vehicle networks using lightweight CNN architecture optimized for edge deployment.
 
----
-
-## 📋 Table of Contents
-- [Abstract](#abstract)
-- [Key Features](#key-features)
-- [Dataset Overview](#dataset-overview)
-- [Model Architecture](#model-architecture)
-- [Experimental Results](#experimental-results)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Repository Structure](#repository-structure)
-- [Citation](#citation)
-
----
 
 ## 🎯 Abstract
 
@@ -137,22 +123,6 @@ Conv2D(3×3, 1→8) → BN → ReLU
 - Global average pooling prevents overfitting
 - Minimal parameters for edge deployment
 
-### Mathematical Formulation
-
-**Initial Convolution**:
-```
-X₁[i,j,m] = Σ(p=0→2) Σ(q=0→2) X_input[i+p-1,j+q-1,1] × W[p,q,1,m] + b_m
-```
-
-**Pointwise Convolution** (repeated 3×):
-```
-Y[i,j,k'] = Σ(k=1→D_in) X[i,j,k] × W[1,1,k,k'] + b_k'
-```
-
-**Global Average Pooling**:
-```
-X_pool = (1/(H×W)) × Σ(i=1→H) Σ(j=1→W) X₄[i,j]
-```
 
 ### CAN Feature Engineering
 
@@ -248,8 +218,8 @@ CUDA >= 11.0 (optional, for GPU training)
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/yourusername/unified-ivn-safety-security.git
-cd unified-ivn-safety-security
+git clone https://github.com/Arupreza/UISS.git
+cd UISS
 ```
 
 2. **Create virtual environment**
@@ -342,22 +312,16 @@ for msg in bus:
 
 ```
 unified-ivn-safety-security/
-├── AggDDS/                          # Aggressive Driving Detection System
-│   ├── FedModel/                    # Federated learning models (future work)
+├── UISS/                          # Aggressive Driving Detection System
 │   ├── .gitignore
 │   ├── BEV_Auto_GRU.ipynb          # Tesla Autonomous - GRU baseline
-│   ├── BEV_Auto_GRU.pth            # Trained weights
 │   ├── BEV_Auto_L_CNN.ipynb        # Tesla Autonomous - L-CNN
-│   ├── BEV_Auto_L_CNN.pth          # Trained weights
 │   ├── BEV_Manual_GRU.ipynb        # Tesla Manual - GRU baseline
-│   ├── BEV_Manual_GRU.pth          # Trained weights
 │   ├── BEV_Manual_L_CNN.ipynb      # Tesla Manual - L-CNN
-│   ├── BEV_Manual_L_CNN.pth        # Trained weights
 │   ├── Data Labeling.ipynb         # Dataset annotation pipeline
 │   ├── ICEV_GRU.ipynb              # Kia Manual - GRU baseline
-│   ├── ICEV_GRU.pth                # Trained weights
 │   ├── ICEV_L_CNN.ipynb            # Kia Manual - L-CNN
-│   ├── ICEV_L_CNN.pth              # Trained weights
+
 │   ├── LICENSE
 │   └── README.md                    # This file
 │
@@ -365,27 +329,19 @@ unified-ivn-safety-security/
 │   ├── images/                      # Figures and diagrams
 │   │   ├── controlled_environment_route.png
 │   │   ├── lcnn_architecture_flow.png
-│   │   ├── attack_scenarios.png
-│   │   └── confusion_matrices/
+│   │ 
 │   └── paper.pdf                    # Associated research paper
 │
-├── data/                            # Dataset (not included in repo)
-│   ├── kia_manual/
-│   ├── tesla_manual/
-│   └── tesla_autonomous/
 │
 ├── models/
-│   ├── lcnn.py                      # L-CNN architecture
-│   ├── gru.py                       # GRU baseline
-│   └── preprocessing.py             # Data preprocessing utilities
-│
-├── utils/
-│   ├── metrics.py                   # Evaluation metrics
-│   ├── visualization.py             # Plotting functions
-│   └── can_parser.py                # CAN data parsing
+│   ├── BEV_Auto_GRU.pth            # Trained weights
+│   ├── BEV_Auto_L_CNN.pth          # Trained weights
+│   ├── BEV_Manual_GRU.pth          # Trained weights
+│   ├── BEV_Manual_L_CNN.pth        # Trained weights
+│   ├── ICEV_GRU.pth                # Trained weights
+│   ├── ICEV_L_CNN.pth              # Trained weights
 │
 ├── requirements.txt
-└── setup.py
 ```
 
 ---
