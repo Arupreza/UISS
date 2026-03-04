@@ -258,3 +258,77 @@ def PlotPRCurve(
 
     ap_macro = float(np.mean(list(ap_per_class.values()))) if ap_per_class else float("nan")
     return {"AP_micro": float(ap_micro), "AP_macro": ap_macro, "AP_per_class": ap_per_class}
+
+
+def PlotConfusionMatrixKia(cf_matrix, class_labels):
+    cf_matrix = np.array(cf_matrix)
+    n = len(class_labels)
+
+    # ---- Calculate row percentages ---- #
+    percentages = np.zeros_like(cf_matrix, dtype=float)
+    for i in range(n):
+        row_sum = cf_matrix[i].sum()
+        if row_sum > 0:
+            percentages[i] = (cf_matrix[i] / row_sum) * 100
+
+    # ---- Normalize for heat intensity ---- #
+    intensity_matrix = percentages / 100.0
+
+    # ---- Plot heatmap ---- #
+    plt.figure(figsize=(14, 12))
+    ax = sns.heatmap(
+        intensity_matrix,
+        cmap=light_greeyellow,
+        cbar=False,
+        annot=False,
+        linewidths=1.0,
+        linecolor="black"
+    )
+
+    # ---- Overlay numbers + percentages ---- #
+    for i in range(n):
+        for j in range(n):
+            ax.text(
+                j + 0.5, i + 0.33,
+                f"{cf_matrix[i][j]}",
+                ha="center", va="center",
+                fontsize=18, fontweight="bold", color="black"
+            )
+            ax.text(
+                j + 0.5, i + 0.74,
+                f"{percentages[i][j]:.2f}%",
+                ha="center", va="center",
+                fontsize=15, fontweight="bold", color="black"
+            )
+
+    # ---- Tick colors (updated to match renamed classes) ---- #
+    tick_colors = {
+        "S&AF": "green",
+        "AB": "#FFA500", "AL": "#FFA500", "AA": "#FFA500",
+        "DoS": "#800000", "Fuzz": "#800000", "Replay": "#800000",
+        "Spoof": "#800000","AAB": "red", "AAL": "red", "AAA": "red"
+    }
+
+    ax.set_xticks(np.arange(n) + 0.5)
+    ax.set_yticks(np.arange(n) + 0.5)
+
+    ax.set_xticklabels(
+        class_labels, rotation=45, ha='right',
+        fontsize=18, fontweight="bold"
+    )
+    ax.set_yticklabels(
+        class_labels, rotation=0,
+        fontsize=18, fontweight="bold"
+    )
+
+    # Apply tick colors
+    for idx, lbl in enumerate(class_labels):
+        ax.get_xticklabels()[idx].set_color(tick_colors[lbl])
+        ax.get_yticklabels()[idx].set_color(tick_colors[lbl])
+
+    # ---- Axis labels ---- #
+    plt.xlabel("True Labels", fontsize=22, fontweight="bold", color="darkblue")
+    plt.ylabel("Predicted Labels", fontsize=22, fontweight="bold", color="darkblue")
+
+    plt.tight_layout()
+    plt.show()
